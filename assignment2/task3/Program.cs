@@ -7,14 +7,18 @@ namespace task3 {
 		static List<int> FindPrimes(int n) {
 			bool[] vis = new bool[n + 1];
 			List<int> primes = new List<int>();
-			for (int i = 2; i <= n; i++) {
-				if (vis[i] == true) {
+			for (int i = 2; i * i <= n; i++) {
+				if (vis[i]) {
 					continue;
 				}
-				primes.Add(i);
-				for (int j = 2; j * i <= n; j++) {
+				for (int j = i; j * i <= n; j++) {
 					vis[j * i] = true;
 				}
+			}
+			for (int i = 2; i <= n; i++) {
+				if (vis[i] == false) {
+					primes.Add(i);
+				}	
 			}
 			return primes;
 		}
