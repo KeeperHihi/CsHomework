@@ -4,6 +4,10 @@ using System.Collections.Generic;
 namespace Task1 {
 	class Program {
 		static List<int> FindPrimeFactors(int n) {
+			if (n <= 0) {
+				Console.WriteLine("The input n must bigger then zero!");
+				return new List<int>();
+			}
 			List<int> ans = new List<int>();
 			for (int i = 2; i * i <= n; i++) {
 				if (n % i == 0) {

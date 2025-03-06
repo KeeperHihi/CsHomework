@@ -5,8 +5,8 @@ using System.Linq;
 namespace Task4 {
 	class Program {
 		static bool CheckTPLZ(int[,] adj) {
-			if (adj.Length == 0) {
-				return false;
+			if (adj.Length <= 0) {
+				return -1;
 			}
 			int n = Math.Min(adj.GetLength(0), adj.GetLength(1));
 			for (int i = 0; i < n; i++) {

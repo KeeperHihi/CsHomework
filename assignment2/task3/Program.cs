@@ -5,6 +5,10 @@ using System.Linq;
 namespace task3 {
 	class Program {
 		static List<int> FindPrimes(int n) {
+			if (n <= 0) {
+				Console.WriteLine("The input n must bigger then zero!");
+				return new List<int>();
+			}
 			bool[] vis = new bool[n + 1];
 			List<int> primes = new List<int>();
 			for (int i = 2; i * i <= n; i++) {
