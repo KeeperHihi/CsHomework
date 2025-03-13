@@ -25,9 +25,13 @@ public class Triangle: Shape {
 	public Triangle(double[] Edges): base(Edges) { }
 	public override bool IsValid() {
 		bool isOk = true;
-		// check...
+		// Need More Check To Ensure that the Triangle is legal...
 		// ...
 		// ...
+		double a = Edges[0], b = Edges[1], c = Edges[2];
+		if (a + b <= c || a + c <= b || b + c <= a) {
+			isOk = false;
+		}
 		if (Edges == null || Edges.Length != 3) {
 			isOk = false;
 		}
@@ -38,9 +42,7 @@ public class Triangle: Shape {
 		if (!IsValid()) {
 			return -1;
 		}
-		// Need More Check To Ensure that the Triangle is legal
 		double a = Edges[0], b = Edges[1], c = Edges[2];
-		if (a + b <= c || a + c <= b || b + c <= a) return 0.0;
 		double s = (a + b + c) / 2;
 		double area = Math.Sqrt(s * (s - a) * (s - b) * (s - c));
 		return area;
