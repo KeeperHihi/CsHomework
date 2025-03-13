@@ -13,6 +13,9 @@ public class Shape {
 	public virtual double GetArea() {
 		return 0.0;
 	}
+	public virtual bool IsValid() {
+		return false;
+	}
 	public void init(double[] Edges) {
 		this.Edges = Edges;
 	}
@@ -20,8 +23,19 @@ public class Shape {
 
 public class Triangle: Shape {
 	public Triangle(double[] Edges): base(Edges) { }
-	public override double GetArea() {
+	public override bool IsValid() {
+		bool isOk = true;
+		// check...
+		// ...
+		// ...
 		if (Edges == null || Edges.Length != 3) {
+			isOk = false;
+		}
+		if (!isOk) return false;
+		return true;
+	}
+	public override double GetArea() {
+		if (!IsValid()) {
 			return -1;
 		}
 		// Need More Check To Ensure that the Triangle is legal
@@ -35,8 +49,19 @@ public class Triangle: Shape {
 
 public class Rectangle: Shape {
 	public Rectangle(double[] Edges): base(Edges) { }
-	public override double GetArea() {
+	public override bool IsValid() {
+		bool isOk = true;
+		// check...
+		// ...
+		// ...
 		if (Edges == null || Edges.Length != 2) {
+			isOk = false;
+		}
+		if (!isOk) return false;
+		return true;
+	}
+	public override double GetArea() {
+		if (!IsValid()) {
 			return -1;
 		}
 		double area = Edges[0] * Edges[1];
@@ -46,8 +71,19 @@ public class Rectangle: Shape {
 
 public class Square: Rectangle {
 	public Square(double[] Edges): base(Edges) { }
-	public override double GetArea() {
+	public override bool IsValid() {
+		bool isOk = true;
+		// check...
+		// ...
+		// ...
 		if (Edges == null || Edges.Length != 1) {
+			isOk = false;
+		}
+		if (!isOk) return false;
+		return true;
+	}
+	public override double GetArea() {
+		if (!IsValid()) {
 			return -1;
 		}
 		double area = Edges[0] * Edges[0];

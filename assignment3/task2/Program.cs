@@ -2,9 +2,19 @@
 using System.Collections.Generic;
 using Shapes;
 
+// 存在的问题：
+// 类型最好使用 enum 而不是字符串！
+// shapes, Random 都应该放到 Factory 里面作为内部变量
+// 应该区分按类型生成以及随机生成两种生产模式
+
 namespace Task2 {
 	class Factory {
 		public static Shape Produce(string type, List<double> Edges) {
+			if (Edges == null) {
+				throw new InvalidOperationException("Edges is null");
+			}
+			// Other Validation Checker
+
 			Shape shape = null;
 			switch (type) {
 				case "Triangle":
